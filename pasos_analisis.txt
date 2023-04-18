@@ -1,0 +1,15 @@
+Una pantalla con todas las graficas generales de cada Una
+
+Una gráfica con la media de cada gráfica
+
+Una gráfica de media por sectores
+
+KPI de cuanto ha descendido en cada valor desde el máximo al minimo por covid
+
+Las de ascenso
+
+
+
+README
+STREAMLIT
+POWER BI
