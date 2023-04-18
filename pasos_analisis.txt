@@ -1,4 +1,4 @@
-Una pantalla con todas las graficas generales de cada Una
+Una pantalla con todas las graficas generales de cada Una-----------------------------
 
 Una gráfica con la media de cada gráfica
 
@@ -10,6 +10,10 @@ Las de ascenso
 
 
 
+
+
+
 README
+Memoria del trabajo
 STREAMLIT
 POWER BI
