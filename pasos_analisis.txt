@@ -17,3 +17,10 @@ README
 Memoria del trabajo
 STREAMLIT
 POWER BI
+
+pagina 1: Inicio
+pagina 2: Busqueda de cada valor
+pagina 3: media de todas
+            para cada una el rango desde el punto medio alto al bajo
+            (clasificarlas segun ascenso o descenso)
+            

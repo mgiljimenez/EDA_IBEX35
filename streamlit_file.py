@@ -1,12 +1,15 @@
 #Importamos las librerias necesarias
-from configuration.invest_config import invest
+from configuration.invest_config import invest, datos_extraidos
 from configuration.creacion_graficos import graficos
-from configuration.datos_extraidos import valores, valores_name, dic_valores
 import pandas as pd
 import plotly as py
 import plotly.graph_objs as go
 import streamlit as st
 
+datos=datos_extraidos()
+valores=datos[0]
+valores_name=datos[1]
+dic_valores=datos[2]
 
 #Inicializamos streamlit
 
