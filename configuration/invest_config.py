@@ -1,7 +1,6 @@
 import yfinance as yf
 import datetime
 import pandas as pd
-from invest_config import invest
 import os
 
 
@@ -44,18 +43,6 @@ class datos_extraidos:
     def __init__():
         pass
     def datos_extraidos():
-        #Leemos cuales son los índices actuales del IBEX35 y sacamos sus códigos
-        ibex35=pd.read_csv("configuration/codigos_ibex35.csv")
-        codigos_ibex35=ibex35["codigo"]
-
-        #Creación de un CSV para cada valor del ibex35 entre 2018-01-01 y 2023-04-17 con frecuencia semanal
-        #Guardados en data_ibex35
-        for codigo in codigos_ibex35:
-            data=invest(codigo,"2018-01-01","2023-04-17","1wk")
-            df_data=data.resultados()
-            ruta="data_ibex35/"+codigo+".csv"
-            df_data.to_csv(ruta)
-
         #Asignamos CSV a los índices del IBEX35
         ACS= pd.read_csv('data_ibex35/ACS.MC.csv')
         ACX= pd.read_csv('data_ibex35/ACX.MC.csv')
