@@ -12,6 +12,9 @@ Media de ascenso o descenso por empresa desde el minimo del covid
 
 
 
+-- Descenso medio por categoria
+-- Buscar cuando han recuperado los valores precovid
+-- Dividir entre las tendencias positivas y negativas (recuperación)
 
 
 

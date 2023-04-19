@@ -1,27 +1,28 @@
 #Importamos las librerias necesarias
 from configuration.invest_config import invest, datos_extraidos
-from configuration.creacion_graficos import graficos
+from configuration.codigo_graficos import grafico_valor,grafico_valor_resumido, grafico_media_ibex35, grafico_descenso_por_valor, grafico_descenso_por_valor_categoria
+import numpy as np
 import pandas as pd
 import plotly as py
 import plotly.graph_objs as go
+import plotly.express as px
 import streamlit as st
 
-datos=datos_extraidos()
-valores=datos[0]
-valores_name=datos[1]
-dic_valores=datos[2]
+
+carga_datos=datos_extraidos.datos_extraidos()
+valores=carga_datos[0]
+valores_name=carga_datos[1]
+dic_valores=carga_datos[2]
 
 #Inicializamos streamlit
 
 st.set_page_config(page_title="EDA IBEX35", page_icon="💰")
 
 st.sidebar.title("EDA IBEX 35")
-st.sidebar.image("img\imagen2.jpg")
 menu=st.sidebar.selectbox("Menú", ["Inicio","Valores", "Análisis"])
 
 if menu == "Inicio":
     st.title("Inicio")
-    st.image("img\imagen6.jpg")
     st.markdown("""Este trabajo consiste en un **EDA** *(Exploratory Data Analysis)* desarrollado por **Miguel Gil Jimenez** durante el **Bootcamp de Data Science** en The Bridge.
                 Nos centramos en analizar los valores del IBEX35 para comprobar si han recuperado su actividad normal tras la influecia que tuvo el COVID en los mercados.
                 Para ello se extraen los datos de la API yfinance.""")
@@ -45,9 +46,9 @@ if menu == "Valores":
     filtro_valor = st.sidebar.selectbox("Seleccione el valor", valores_name)
     tipo_grafico=st.sidebar.radio("Seleccione tipo de gráfico:",options=["Detallado","Resumen"])
     if tipo_grafico=="Detallado":
-        st.plotly_chart(graficos.grafico_valor(filtro_valor))
+        st.plotly_chart(grafico_valor(filtro_valor, dic_valores))
     elif tipo_grafico=="Resumen":
-        st.plotly_chart(graficos.grafico_valor_resumen(filtro_valor))
+        st.plotly_chart(grafico_valor_resumido(filtro_valor, dic_valores))
 
 if menu =="Análisis":
     st.write("Hola")
