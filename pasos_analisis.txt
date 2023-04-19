@@ -10,6 +10,9 @@ Las de ascenso
 
 
 
+-- Descenso medio por categoria
+-- Buscar cuando han recuperado los valores precovid
+-- Dividir entre las tendencias positivas y negativas (recuperación)
 
 
 
