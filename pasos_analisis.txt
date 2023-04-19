@@ -6,7 +6,9 @@ Una gráfica de media por sectores
 
 KPI de cuanto ha descendido en cada valor desde el máximo al minimo por covid
 
-Las de ascenso
+
+
+Media de ascenso o descenso por empresa desde el minimo del covid
 
 
 
@@ -15,8 +17,8 @@ Las de ascenso
 
 README
 Memoria del trabajo
+PowerPoint
 STREAMLIT
-POWER BI
 
 pagina 1: Inicio
 pagina 2: Busqueda de cada valor
