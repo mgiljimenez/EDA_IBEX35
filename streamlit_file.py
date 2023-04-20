@@ -31,7 +31,7 @@ df_suma_IBEX35=df_suma_IBEX35.rename(columns={0:"Open"})
 st.set_page_config(page_title="EDA IBEX35", page_icon="💰")
 
 st.sidebar.title("EDA IBEX 35")
-menu=st.sidebar.selectbox("Menú", ["Inicio","Valores", "Análisis época confinamiento", "Análisis hasta actualidad"])
+menu=st.sidebar.selectbox("Menú", ["Inicio","Valores", "Análisis época confinamiento", "Análisis hasta actualidad","Conclusión"])
 
 if menu == "Inicio":
     st.sidebar.image("img/foto_bar.jpg")
@@ -176,6 +176,19 @@ elif menu=="Análisis hasta actualidad":
     st.plotly_chart(fig)
     st.write("""En este gráfico podemos observar la evolución del volumen de los valores desde 2018 hasta 2023. Todos los valores siguen una distribución aproximadamente cíclica y bastante estable, sin embargo, al observar la evolución del volumen de “IAG”, podemos comprobar que se produce un cambio drástico en su tendencia que coincide con el inicio del confinamiento en España. """)
     indice_volumen=st.selectbox("Seleccione el valor para mostrar sus datos", valores_name)
+
+    caida_minimo=100-(dic_valores[indice_volumen]["Open"][115]*100/dic_valores[indice_volumen]["Open"][111])
+    caida_actual=100-(dic_valores[indice_volumen]["Open"][275]*100/dic_valores[indice_volumen]["Open"][111])
+    caida_minimo=round(caida_minimo*(-1),2)
+    caida_actual=round(caida_actual*(-1),2)
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.metric(label="Variación en la caída pico", value=str(caida_minimo)+"%")
+    with col2:
+        st.metric(label="Variación inicio caida-actual", value=str(caida_actual)+"%")
+
+
     def grafico_evolucion_volumen(valor, dic_valores):
         #Gráfico de evolución del volumen
         caida = dic_valores[valor]
@@ -200,4 +213,34 @@ elif menu=="Análisis hasta actualidad":
     st.plotly_chart(grafico_evolucion_volumen(indice_volumen, dic_valores))
     st.plotly_chart(grafico_valor(indice_volumen, dic_valores))
 
-    st.write("""Como conclusión podemos decir que el descenso de la caída pico supuso un -35,61% pero desde el inicio de la caída hasta la actualidad se ha incrementado el precio un 0,64% lo que significa que el IBEX35 ya está recuperando su normalidad.""")
+        
+
+
+
+elif menu =="Conclusión":
+    st.sidebar.image("img/foto_bar.jpg")
+    variacion_inicio_actual={}
+
+    for empresa in dic_valores:
+        try:
+            caida_actual=100-(dic_valores[empresa]["Open"][275]*100/dic_valores[empresa]["Open"][111])
+            caida_actual=round(caida_actual*(-1),2)
+            variacion_inicio_actual[empresa]=caida_actual
+        except:
+            pass
+    valores = list(variacion_inicio_actual.values())
+    empresas = list(variacion_inicio_actual.keys())
+    trace = go.Bar(x=empresas, y=valores)
+    layout = go.Layout(title='Variación de cada valor (Actual respecto a Pre-Covid)')
+    fig1 = go.Figure(data=[trace], layout=layout)
+    st.plotly_chart(fig1)
+    labels = ['Superiores a Pre-Covid', 'Inferiores a Pre-Covid']
+    values = [35.71, 64.29]
+    trace = go.Pie(labels=labels, values=values)
+    layout = go.Layout(title='Distribución de empresas según su valor actual respecto a su situación Pre-Covid')
+    fig2 = go.Figure(data=[trace], layout=layout)
+    st.plotly_chart(fig2)
+
+    st.write("""Podemos observar que tan solo un 35.7% ha recuperado sus niveles precovid, siendo el mayor beneficiado Acciona, empresa de energías renovables.
+             """)
+    st.write("""Como conclusión podemos decir que el descenso de la caída pico supuso un -35,61% pero desde el inicio de la caída hasta la actualidad se ha incrementado el precio un 0,64% lo que significa que el IBEX35 ya está recuperando su normalidad. Sin embargo al observar cada valor individualmente comprobarmos que existen mucha diferencias y no crecen en conjunto, sino que unas aumentan su valor considerablemente, mientras otras se han estancado.""")
