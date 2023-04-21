@@ -243,4 +243,5 @@ elif menu =="Conclusión":
 
     st.write("""Podemos observar que tan solo un 35.7% ha recuperado sus niveles precovid, siendo el mayor beneficiado Acciona, empresa de energías renovables.
              """)
-    st.write("""Como conclusión podemos decir que el descenso de la caída pico supuso un -35,61% pero desde el inicio de la caída hasta la actualidad se ha incrementado el precio un 0,64% lo que significa que el IBEX35 ya está recuperando su normalidad. Sin embargo al observar cada valor individualmente comprobarmos que existen mucha diferencias y no crecen en conjunto, sino que unas aumentan su valor considerablemente, mientras otras se han estancado.""")
+    st.write("""Como conclusión podemos decir que el descenso de la caída pico supuso un -35,61% del valor del IBEX35, sin embargo actualmente ha recuperado su situación pre-COVID. Sin embargo, al estudiar los valores individualmente llegamos a la conclusión de que algunas han aumentado su valor pre-COVID considerablemente, mientras que otras se han estancado incluso llegando a disminuir todavía más su valor.
+    Por ello podemos decir que el IBEX35 en su conjunto se encuentra en una situación pre-COVID, pero los valores que las componen no.""")
