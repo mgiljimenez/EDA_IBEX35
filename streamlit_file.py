@@ -36,6 +36,7 @@ menu=st.sidebar.selectbox("Menú", ["Inicio","Valores", "Análisis época confin
 if menu == "Inicio":
     st.sidebar.image("img/foto_bar.jpg")
     st.title("Inicio")
+    st.markdown("20/04/2023")
     st.markdown("""Este trabajo consiste en un **EDA** *(Exploratory Data Analysis)* desarrollado por **Miguel Gil Jimenez** durante el **Bootcamp de Data Science** en The Bridge.
                 Nos centramos en analizar los valores del IBEX35 para comprobar si han recuperado su actividad normal tras la influecia que tuvo el COVID en los mercados.
                 Para ello se extraen los datos de la API yfinance.""")
